@@ -9,6 +9,9 @@ Install Plugins
  - JSHint Gutter
  - HTML-CSS-JS Prettify
  - AdvanceNewFile
+ - CSSComb
+ - AllAutocomplete
+ - Clipboard Manager
 
 Copy .jshintrc to JSHint Gutter options
 
