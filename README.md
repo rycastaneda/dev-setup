@@ -1,39 +1,40 @@
-# JavaScript Snippets for Sublime [![Build Status](https://secure.travis-ci.org/zenorocha/sublime-javascript-snippets.svg?branch=master)](https://travis-ci.org/zenorocha/sublime-javascript-snippets)
+# Sublime Settings
+Copy the snippets, keybindings and preferences json to sublime.
+%APPDATA%/Sublime Text 3/Packages
+Install Plugins
+ - Emmet
+ - Package Control
+ - JSHint Gutter
+ - HTML-CSS-JS Prettify
 
-![Demo](https://cloud.githubusercontent.com/assets/398893/3528110/d55390be-078b-11e4-8587-db23277b50af.gif)
-
-## Install
-
-To install through [Package Control](http://wbond.net/sublime_packages/package_control),
-search for **JavaScript & NodeJS Snippets**. If you still don't have Package Control in Sublime Text, [go get it](http://wbond.net/sublime_packages/package_control/installation).
-It's pure awesomeness.
-
-If you prefer to install it manually, you can download the package and put it inside your `Packages` directory. It should work but will not update automatically.
+Copy .jshintrc to JSHint Gutter options
+Copy .jsbeautify to HTML-CSS-JS Prettify options
+Set both format on save option to true
 
 ## Console
 
 ### [cd] console.dir
 
 ```javascript
-console.dir(${1:obj});
+console.dir("$1", $1);
 ```
 
 ### [ce] console.error
 
 ```javascript
-console.error(${1:obj});
+console.error("$1", $1);
 ```
 
 ### [cl] console.log
 
 ```javascript
-console.log(${1:obj});
+console.log("$1", $1);
 ```
 
 ### [cw] console.warn
 
 ```javascript
-console.warn(${1:obj});
+console.warn("$1", $1);
 ```
 
 ### [de] debugger
@@ -248,6 +249,32 @@ setTimeout(function() {
 
 ## NodeJS
 
+### [source] basic expressjs endpoint
+exports.$1 = function (req, res, next) {
+ var data = util.get_data([$2], [$3], req.${4:query}),
+
+  start = function () {
+   if (!req.access_token) {
+    return next('access_token is missing');
+   }
+
+   if (typeof data === 'string') {
+    return next(data);
+   }
+
+   $5
+  },
+  send_response = function (err, result) {
+   if (err) {
+    return next(err);
+   }
+
+   res.send(result);
+  };
+
+ start();
+};
+
 ### [ase] assert.equal
 
 ```javascript
@@ -340,18 +367,13 @@ confirm('${1:msg}');
 prompt('${1:msg}');
 ```
 
-## Contributing
+### [ifor] for statement
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
-## History
-
-Check [Releases](https://github.com/zenorocha/sublime-javascript-snippets/releases) for detailed changelog.
+```javascript
+for (var i = 0, len = ${1:arr}.length; i < len; i++) {
+    ${2:$1[i]}$3
+```
 
 ## License
 
-[MIT License](http://zenorocha.mit-license.org/) © Zeno Rocha
+Forked from [MIT License](http://zenorocha.mit-license.org/) © Zeno Rocha
