@@ -1,14 +1,19 @@
 # Sublime Settings
 Copy the snippets, keybindings and preferences json to sublime.
+
 %APPDATA%/Sublime Text 3/Packages
+
 Install Plugins
  - Emmet
  - Package Control
  - JSHint Gutter
  - HTML-CSS-JS Prettify
 
+
 Copy .jshintrc to JSHint Gutter options
+
 Copy .jsbeautify to HTML-CSS-JS Prettify options
+
 Set both format on save option to true
 
 ## Console
