@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+${1:condition} && ${2:expression} || ${3:expression};
+]]></content>
+    <tabTrigger>sif</tabTrigger>
+    <scope>source.js</scope>
+    <description>shorthand if</description>
+</snippet>

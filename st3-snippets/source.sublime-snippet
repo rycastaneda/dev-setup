@@ -1,0 +1,31 @@
+<snippet>
+ <content><![CDATA[
+exports.$1 = function (req, res, next) {
+ var data = util.get_data([$2], [$3], req.${4:query}),
+
+  start = function () {
+   if (!req.access_token) {
+    return next('access_token is missing');
+   }
+
+   if (typeof data === 'string') {
+    return next(data);
+   }
+
+   $5
+  },
+  send_response = function (err, result) {
+   if (err) {
+    return next(err);
+   }
+
+   res.send(result);
+  };
+
+ start();
+};
+
+]]></content>
+ <tabTrigger>xpo</tabTrigger>
+ <scope>source.js</scope>
+</snippet>

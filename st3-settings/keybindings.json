@@ -1,0 +1,13 @@
+[
+    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["ctrl+e"], "command": "find_under_expand" },
+    { "keys": ["ctrl+alt+v"], "command": "paste_from_history" },
+    { "keys": ["ctrl+q"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+shift+q"], "command": "toggle_comment", "args": { "block": true } },
+    { "keys": ["f5"], "command": "goto_definition" },
+    { "keys": ["f2"], "command": "toggle_bookmark" },
+    { "keys": ["f4"], "command": "next_bookmark" },
+    { "keys": ["f3"], "command": "prev_bookmark" },
+    { "keys": ["ctrl+alt+shift+w"], "command": "close_all" },
+    { "keys": ["f12"], "command": "reindent"} ,
+]
