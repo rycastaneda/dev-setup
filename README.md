@@ -8,7 +8,7 @@ Install Plugins
  - Package Control
  - JSHint Gutter
  - HTML-CSS-JS Prettify
-
+ - AdvanceNewFile
 
 Copy .jshintrc to JSHint Gutter options
 
