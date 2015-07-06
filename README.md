@@ -172,6 +172,14 @@ ${1:myArray}.forEach(function(${2:elem}) {
 });
 ```
 
+### [map] map
+
+```javascript
+${1:myArray}.map(function(${2:elem}) {
+  ${3}
+});
+```
+
 ### [fi] for in
 
 ```javascript
