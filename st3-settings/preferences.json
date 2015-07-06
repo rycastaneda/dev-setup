@@ -1,5 +1,7 @@
 {
     "binary_file_patterns": [
+        "build/*",
+        "node_modules/*",
         "*.jpg",
         "*.jpeg",
         "*.png",
