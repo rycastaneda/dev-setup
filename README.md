@@ -18,6 +18,7 @@ Copy .jsbeautify to HTML-CSS-JS Prettify options
 
 Set both format on save option to true
 
+
 ## Console
 
 ### [cd] console.dir
