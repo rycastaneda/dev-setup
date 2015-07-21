@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-source .bash_alias
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -94,6 +94,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+export GIT_PROMPT_ONLY_IN_REPO=1
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_P
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -109,18 +113,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+S1_SHOWDIRTYSTATE=true
 
+source ~/.bash_colors
+source /usr/lib/git-core/git-sh-prompt
+source /etc/bash_completion.d/git-extras
+ export PS1=" \[\033[01;37m\][\$?] \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]\342\234\223\"; else echo \"\[\033[01;31m\]\342\234\227\"; fi) \[\e[0m\]\[\e[01;33m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[01;32m\]\h\[\e[0m\]\[\e[00;37m\]:\w$BGreen\$(__git_ps1 ' (%s) ')$Color_Off [\t]\n---> \[\e[0m\]"
 
 # Add git branch if its present to PS1
-parse_git_branch() {
- git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-if [ "$color_prompt" = yes ]; then
- PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
-else
- PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
-fi
-unset color_prompt force_color_prompt
 setxkbmap -option caps:none
 xmodmap -e "keycode 66 = Delete"
-PS1="\[\033[01;37m\][$?] $(if [[ $? == 0 ]]; then echo "\[\033[01;32m\]\342\234\223"; else echo "\[\033[01;31m\]\342\234\227"; fi) \[\e[0m\]\[\e[01;33m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[01;32m\]\h\[\e[0m\]\[\e[00;37m\]:\w\e[1;32m$(__git_ps1 ' (%s) ')\e[0m [\t]\n---> \[\e[0m\]"
