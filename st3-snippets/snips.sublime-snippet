@@ -1,0 +1,226 @@
+<!-- BDD -->
+<snippet>
+    <content><![CDATA[
+describe('${1:description}', function() {
+    ${2}
+});
+]]></content>
+    <tabTrigger>desc</tabTrigger>
+    <scope>source.js</scope>
+    <description>BDD describe</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+it('${1:description}', function(done) {
+    ${2}
+});
+]]></content>
+    <tabTrigger>ita</tabTrigger>
+    <scope>source.js</scope>
+    <description>BDD it asynchronous</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+it('${1:description}');
+]]></content>
+    <tabTrigger>itp</tabTrigger>
+    <scope>source.js</scope>
+    <description>BDD it pending</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+it('${1:description}', function() {
+    ${2}
+});
+]]></content>
+    <tabTrigger>its</tabTrigger>
+    <scope>source.js</scope>
+    <description>BDD it synchronous</description>
+</snippet>
+
+<!-- Console -->
+<snippet>
+    <content><![CDATA[
+console.dir("$1",$1);
+]]></content>
+    <tabTrigger>cd</tabTrigger>
+    <scope>source.js</scope>
+    <description>console.dir</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+console.error("$1",$1);
+]]></content>
+    <tabTrigger>ce</tabTrigger>
+    <scope>source.js</scope>
+    <description>console.error</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+console.log("$1", $1);
+]]></content>
+    <tabTrigger>cl</tabTrigger>
+    <description>console.log</description>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+console.warn("$1",$1);
+]]></content>
+    <tabTrigger>cw</tabTrigger>
+    <scope>source.js</scope>
+    <description>console.warn</description>
+</snippet>
+
+<!-- AngularJS -->
+
+<snippet>
+    <content><![CDATA[(function() {
+    'use strict';
+    angular
+        .module('${1:module}')
+        .controller('${2:Controller}', ${2:Controller});
+    ${2:Controller}.\$inject = [${3/(\$(\w+)|\w+)/'$1'/g}];
+    /* @ngInject */
+    function ${2:Controller}(${3:dependencies}) {
+        var vm = this;
+        vm.title = '${2:Controller}';
+        activate();
+        ////////////////
+        function activate() {
+        }
+    }
+})();
+]]></content>
+    <tabTrigger>ngcontroller</tabTrigger>
+    <scope>source.js</scope>
+</snippet>
+
+<snippet>
+    <content><![CDATA[(function() {
+    'use strict';
+    angular
+        .module('${1:module}')
+        .directive('${2:directive}', ${2:directive});
+    ${2:directive}.\$inject = [${3/(\$(\w+)|\w+)/'$1'/g}];
+    /* @ngInject */
+    function ${2:directive} (${3:dependencies}) {
+        // Usage:
+        //
+        // Creates:
+        //
+        var directive = {
+            bindToController: true,
+            controller: ${4:Controller},
+            controllerAs: '${5:vm}',
+            link: link,
+            restrict: 'A',
+            scope: {
+            }
+        };
+        return directive;
+        function link(scope, element, attrs) {
+        }
+    }
+    /* @ngInject */
+    function ${4:Controller} () {
+    }
+})();
+]]></content>
+    <tabTrigger>ngdirective</tabTrigger>
+    <scope>source.js</scope>
+</snippet>
+
+<snippet>
+    <content><![CDATA[(function() {
+    'use strict';
+    angular
+        .module('${1:module}')
+        .factory('${2:factory}', ${2:factory});
+    ${2:factory}.\$inject = [${3/(\$(\w+)|\w+)/'$1'/g}];
+    /* @ngInject */
+    function ${2:Factory}(${3:dependencies}) {
+        var service = {
+            ${4:func}: ${4:func}
+        };
+        return service;
+        ////////////////
+        function ${4:function}() {
+        }
+    }
+})();
+]]></content>
+    <tabTrigger>ngfactory</tabTrigger>
+    <scope>source.js</scope>
+</snippet>
+
+<snippet>
+    <content><![CDATA[(function() {
+    'use strict';
+    angular
+        .module('${1:module}', [
+            '${2:dependencies}'
+        ]);
+})();
+]]></content>
+    <tabTrigger>ngmodule</tabTrigger>
+    <scope>source.js</scope>
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+\$log.log("$1",$1);
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>ll</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+
+<snippet>
+    <content><![CDATA[
+//@ngInject
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>in</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+
+<!-- NODEJS -->
+<snippet>
+ <content><![CDATA[
+exports.$1 = function (req, res, next) {
+ var data = util.get_data([$2], [$3], req.${4:query}),
+
+  start = function () {
+   if (!req.access_token) {
+    return next('access_token is missing');
+   }
+
+   if (typeof data === 'string') {
+    return next(data);
+   }
+
+   $5
+  },
+  send_response = function (err, result) {
+   if (err) {
+    return next(err);
+   }
+
+   res.send(result);
+  };
+
+ start();
+};
+
+]]></content>
+ <tabTrigger>xpo</tabTrigger>
+ <scope>source.js</scope>
+</snippet>
