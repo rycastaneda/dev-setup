@@ -13,10 +13,16 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 alias nah='git reset --hard; git clean -df'
+alias ign='git ls-files -o -i --exclude-standard'
+alias uncommit='git reset HEAD~1 --mixed'
+alias gl='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+alias ac='git add . && git commit -am'
+alias push='git push -u origin --all'
+alias rao='git remote add origin'
 ## -----------------------------------------------------------------------------------------
 ## Created by Vivek Gite <vivek@nixcraft.com>
 ## See for more info: http://www.cyberciti.biz/tips/linux-unix-osx-bash-shell-aliases.html
-## Note: I work a lot with Amazon EC2/CDN/Akamai/Server Backups etc so source code of those 
+## Note: I work a lot with Amazon EC2/CDN/Akamai/Server Backups etc so source code of those
 ## scripts not included in this file. YMMV.
 ## -----------------------------------------------------------------------------------------
 alias cd..='cd ..'
@@ -120,7 +126,7 @@ alias ff13='/opt/firefox13/firefox'
 alias chrome='/opt/google/chrome/chrome'
 alias opera='/opt/opera/opera'
 alias ff=ff13
-alias browser=chrome 
+alias browser=chrome
 alias df='df -H'
 alias du='du -ch'
 alias top='atop'
