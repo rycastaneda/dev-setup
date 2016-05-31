@@ -99,8 +99,8 @@ export GIT_PROMPT_ONLY_IN_REPO=1
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_P
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.bash_alias ]; then
+    . ~/.bash_alias
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -123,3 +123,7 @@ source /etc/bash_completion.d/git-extras
 # Add git branch if its present to PS1
 setxkbmap -option caps:none
 xmodmap -e "keycode 66 = Delete"
+
+export GOPATH=$HOME/gopath
+export PATH=$GOPATH:$GOPATH/bin:$PATH
+eval "$(thefuck --alias)"
