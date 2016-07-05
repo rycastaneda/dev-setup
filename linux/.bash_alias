@@ -18,6 +18,7 @@ alias uncommit='git reset HEAD~1 --mixed'
 alias gl='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
 alias ac='git add . && git commit -am'
 alias push='git push -u origin --all'
+alias headpush='git push origin HEAD'
 alias rao='git remote add origin'
 ## -----------------------------------------------------------------------------------------
 ## Created by Vivek Gite <vivek@nixcraft.com>
