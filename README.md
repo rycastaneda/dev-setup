@@ -266,6 +266,8 @@ setTimeout(function() {
 ## NodeJS
 
 ### [source] basic expressjs endpoint
+
+```javascript
 exports.$1 = function (req, res, next) {
  var data = util.get_data([$2], [$3], req.${4:query}),
 
@@ -290,6 +292,7 @@ exports.$1 = function (req, res, next) {
 
  start();
 };
+```
 
 ### [ase] assert.equal
 
