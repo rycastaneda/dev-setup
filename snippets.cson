@@ -1,0 +1,91 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.source.js, .source.html':
+  'Console log':
+    'prefix': 'cl'
+    'body': 'console.log("$1", $1);'
+  'Normal Comment Block':
+    'prefix': 'cmm'
+    'body': """
+      //**********************************************************************************
+      // $1
+      //**********************************************************************************
+      $0
+    """
+  'Reducer':
+    'prefix': 'red'
+    'body': """
+    import {
+        ${2}
+    } from '../constants';
+
+    const INITIAL_STATE = {
+        byId: {},
+        allIds: {}
+    };
+
+    export function ${1}(state = INITIAL_STATE, action) {
+        switch (action.type) {
+            case ${2}:
+            default:
+                return state;
+        }
+    }
+    """
+  'Container':
+    'prefix': 'cont'
+    'body': """
+    import React, { PropTypes } from 'react';
+    import { connect } from 'react-redux';
+
+    class ${1} extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            return (
+                <div>
+
+                </div>
+            );
+        }
+    }
+
+    Structures.propTypes = {
+        dispatch: PropTypes.func.isRequired
+    };
+
+    function mapStateToProps() {
+        return {};
+    }
+
+    export default connect(mapStateToProps)(${2});  // adds dispatch prop
+    """
+'*':
+  'esh Database':
+    'prefix': 'eshdb'
+    'body': """
+    SetEnv DB_DATABASE plantminerdb
+    SetEnv DB_PASSWORD root
+    SetEnv DB_HOSTNAME esh.dev
+    SetEnv DB_USERNAME root
+    """
